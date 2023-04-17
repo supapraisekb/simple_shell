@@ -29,6 +29,5 @@ Some examples of which include ```ls``` (```/bin/ls```), ```pwd```, ```echo```,`
 * Language: C
 * OS: Ubuntu 22.04.2 LTS
 * Compiler: gcc  11.3.0
-* Guidelines and Checks: all checks must meet and comply with the standards set by
-* [Betty](https://github.com/holbertonschool/Betty/wiki)
+* Guidelines and Checks: all checks must meet and comply with the standards set by [Betty](https://github.com/holbertonschool/Betty/wiki)
 
