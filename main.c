@@ -1,4 +1,4 @@
-#include "egshell.h"
+#include "shell.h"
 
 void input_signal(int inpt_sig);
 
@@ -75,7 +75,7 @@ return (return_value);
 }
 
 /**
-* main- runs a unix shell command line interpreter
+* main - runs a unix shell command line interpreter
 * @argument_count: number of arguments passed to the shell
 * @argument_vector: array of arguments passed to the shell
 *
