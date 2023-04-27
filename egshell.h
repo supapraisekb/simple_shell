@@ -60,7 +60,7 @@ struct alias_s *next;
 /* Egshell aliases linked list */
 extern alias_t *aliases;
 
-/* Helper Function Prototypes */
+/* Auxilliary Function Prototypes */
 ssize_t egshell_getline(char **lineptr_var,
 		size_t *lineptrSize, FILE *charStream);
 
@@ -86,13 +86,14 @@ char **replace_aliases(char **args);
 
 /* String functions handlers */
 char *strConcat_n(char *dest, const char *src, size_t n);
-size_t lenofStrn(const char *s);
+int  lenofStrn(const char *s);
 char *copyStrn(char *dest, const char *src, size_t n);
-char *strConcat(char *dest, const char *src);
+char *strConcat(char *dest, const char *src, size_t n);
 int comp_strns(const char *str1, const char *str2);
 int compStrn_n(const char *str1, const char *str2, size_t n);
-size_t getPrefix_len(const char *str, const char *prefix);
+int getPrefix_len(char *str, char *prefix);
 char *locateChar(const char *str, char ch);
+char *dupString(const char *str);
 
 /* Egshell Builtin function prototypes */
 int (*get_inbuiltFunct(const char *cmd))(char **args, char **begin_input);
