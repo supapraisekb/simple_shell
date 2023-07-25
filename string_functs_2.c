@@ -87,18 +87,20 @@ return (duplicate_str);
 }
 
 /**
-* f_strncmp - custom implementation of strncmp to compare two strings
+* f_strncmp - custom implementation of strncmp to 
+*compare n number of strings
 * @strn1: first string
 * @strn2: second string
-* @n: maximum number of characters to compare
+* @num: maximum number of characters to compare
 * Return: the compared string integer
 */
-int f_strncmp_(const char *strn1, const char *strn2, size_t n)
+int f_strncmp_(const char *strn1, const char *strn2, size_t num)
 {
-for (size_t i = 0; i < n; i++)
+  size_t index = 0
+for (index = 0; index < n; index++)
 {
-if (strn1[i] == '\0' || strn1[i] != strn2[i])
-return (strn1[i] - strn2[i]);
+if (strn1[I]index] == '\0' || strn1[index] != strn2[index])
+return (strn1[index] - strn2[index]);
 }
 return (0);
 }
