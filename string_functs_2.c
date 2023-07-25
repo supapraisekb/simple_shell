@@ -50,58 +50,28 @@ return (*(strn1 + index) - *(strn2 + index));
 return (-1); /*handles the NULL inputs*/
 }
 
-/**
-* exclude_strn - custom string duplication; excludes beginning bytes
-* @strn: string to duplicate
-* @exclude_bytes: number of bytes to exclude from the beginning
-* Return: duplicated string with specified bytes excluded
-*/
-char *exclude_strn(char *strn, int exclude_bytes)
-{
-char *duplicate_str;
-int len_of_strn = 0, index = 0;
-
-
-if (!strn)
-return (NULL);
-
-/* Calculate the length of the original string */
-while (strn[len_of_strn] != '\0')
-len_of_strn++;
-
-/* length of the string after excluding bytes */
-int result_len = len_of_strn - exclude_bytes;
-
-/* Allocate memory */
-duplicate_str = malloc(sizeof(char) * (result_len + 1));
-if (!duplicate_str)
-return (NULL);
-
-for (index = 0; index < result_len; index++)
-duplicate_str[index] = strn[exclude_bytes + index];
-
-/* Terminate the duplicated string*/
-duplicate_str[result_len] = '\0';
-
-return (duplicate_str);
-}
 
 /**
-* f_strncmp - custom implementation of strncmp to 
-*compare n number of strings
-* @strn1: first string
-* @strn2: second string
-* @num: maximum number of characters to compare
-* Return: the compared string integer
+* _atoi - converts a given input string to an integer
+* @strn: the input string
+* Return: - the integer value of the string on success
+*            -1 if an error occurs
 */
-int f_strncmp_(const char *strn1, const char *strn2, size_t num)
+
+int _atoi(char *strn)
 {
-  size_t index = 0
-for (index = 0; index < n; index++)
+int k = 0;
+unsigned int conv_int = 0;
+
+for (k = 0; strn[k] != '\0'; k++)
+
 {
-if (strn1[I]index] == '\0' || strn1[index] != strn2[index])
-return (strn1[index] - strn2[index]);
+if (strn[k] >= '0' && strn[k] <= '9')
+conv_int *= 10 + (strn[k] - '0');
+
+if (strn[k] > '9' || strn[k] < '0')
+return (-1);
 }
-return (0);
+return (conv_int);
 }
 
