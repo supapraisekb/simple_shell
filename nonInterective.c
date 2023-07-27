@@ -21,7 +21,7 @@ exit(0);
 
 formatted_cmd = cmd;
 cmd = space_handler(cmd);
-multi_line_tokenizer = strn_token(cmd, "\n");
+multi_line_tokenizer = str_tok(cmd, "\n");
 
 if (formatted_cmd != NULL)
 free(formatted_cmd);
@@ -31,16 +31,16 @@ while (multi_line_tokenizer[counter] != NULL)
 {
 line_count++;
 cmd_token = NULL;
-cmd_token = strn_token(multi_line_tokenizer[counter], " ");
-xit_status = builtin_handler(cmd_token, e
-		nv_var, line_count, multi_line_tokenizer);
+cmd_token = str_tok(multi_line_tokenizer[counter], " ");
+xit_status = builtin_handler(cmd_token,
+		env_var, line_count, multi_line_tokenizer);
 
 if (xit_status != 0)
 {
 counter++;
 continue;
 }
-xit_status = _execve(cmd_token, env_var, line_count);
+xit_status = exe_cve(cmd_token, env_var, line_count);
 counter++;
 }
 release_ptr(multi_line_tokenizer);

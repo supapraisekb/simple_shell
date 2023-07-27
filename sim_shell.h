@@ -37,11 +37,12 @@ char *exclude_strn(char *strn, int exclude_bytes);
 
 /*Tokenization functions*/
 int tok_strnlen(char *strn, int str_index, char delim);
-char **str_tok(char *inp_strn, char delim_strn);
+char **str_tok(char *inp_strn, char *delim_strn);
 int num_of_delims(char *strn, char delim);
 char *handle_recurr_delim(char *strn, char delim);
 int total_delim(char *strn, char delim_count);
-char **_token_array(char *strn, char *delim);
+char **token_array(char *strn, char *delim);
+int _atoi(char *strn);
 
 /*Auxilliary Functions*/
 char *custom_which(char *cmd, list_t *env_var);
@@ -66,13 +67,15 @@ void nonInteractive(list_t *env_var);
 int simShell_environ(char **environ);
 
 /*Exit function*/
-int exit_simShell(char **inp_cmd, list_t *env_var,
-		int cmd_line_numb, char **free_cmd);
+int exit_simShell(char **inp_cmd, list_t *env_var, int cmd_line_numb, char **free_cmd);
+void exit_free_(char **inp_cmd, list_t *env_var);
 
 /*Error Handlers*/
 void print_not_found(char *inp_cmd, int cmd_line_numb, list_t *env_var);
 void num_mismatch(char *command_name, int cmd_line_numb, list_t *env_var);
 void cd_error(char *dest, int cmd_line_numb, list_t *env_var);
+void _exit_error_msg(char *cmd_arg, int cmd_line_numb, list_t *env_var);
+
 
 /*Builtin and Change Directory handlers*/
 int builtin_handler(char **inp_tok, list_t *env_var,
@@ -81,6 +84,9 @@ void cd_without_cmd(list_t *env_var, char *curr_dir);
 int change_directory(char **cmd_input, list_t *env_var, int cmd_numb_str);
 int cd_cmd_exec(list_t *env_var, char *curr_dir,
 		char *new_dir, char *input_cmd, int cmd_numb_str);
+int change_dir(char **inp_toks, list_t *env_var, int cmd_num_strn);
+int exe_cve(char **inpt_cmd, list_t *env_var, int cmd_num);
+
 
 /*Singal Handlers*/
 void ctrl_c(int num);

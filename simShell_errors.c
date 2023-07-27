@@ -9,7 +9,6 @@
 */
 
 void num_mismatch(char *command_name, int cmd_line_numb, list_t *env_var)
-void num_mismatch(char *command_name, int cmd_line_numb, list_t *env_var)
 {
 int k;
 char *shell_name = NULL;
@@ -66,7 +65,7 @@ free(name_of_shell);
 
 write(STDOUT_FILENO, ": ", 2);
 
-cmd_num_strn = int_to_string(cmd_line_numb);
+cmd_num_strn = conv_to_string(cmd_line_numb);
 k = 0;
 
 while (cmd_num_strn[k] != '\0')
@@ -114,7 +113,7 @@ free(shell_name);
 
 write(STDOUT_FILENO, ": ", 2);
 
-cmd_num_strn = int_to_string(cmd_line_numb);
+cmd_num_strn = conv_to_string(cmd_line_numb);
 k = 0;
 while (cmd_num_strn[k] != '\0')
 {
@@ -124,7 +123,7 @@ write(STDOUT_FILENO, cmd_num_strn, k);
 free(cmd_num_strn);
 
 write(STDOUT_FILENO, ": ", 2);
-write(STDOUT_FILENO, "cd: invalid destination directory", 35);
+write(STDOUT_FILENO, "cd: invalid destination directory", 34);
 
 k = 0;
 while (dest[k] != '\0')
@@ -133,5 +132,44 @@ k++;
 }
 write(STDOUT_FILENO, dest, k);
 write(STDOUT_FILENO, "\n", 1);
+}
+
+/**
+* _exit_error_msg - outputs an error message for wrong exit number
+* @cmd_arg: argument typed after the exit command
+* @cmd_line_numb: the command at the ith index
+* @env_var: environment variable to produce shell name
+*/
+void _exit_error_msg(char *cmd_arg, int cmd_line_numb, list_t *env_var)
+{
+char *shell_name = _getenv("_", env_var), cmd_line_num_strn[12];
+int len_shell_name = 0, cmd_arg_len = 0, temp = cmd_line_numb, index;
+int len_cmd_line_num_strn = 0;
+
+while (shell_name[len_shell_name] != '\0')
+len_shell_name++;
+
+while (cmd_arg[cmd_arg_len] != '\0')
+cmd_arg_len++;
+
+do {
+temp /= 10;
+len_cmd_line_num_strn++;
+} while (temp != 0);
+
+for (index = len_cmd_line_num_strn - 1; index >= 0; index--)
+{
+cmd_line_num_strn[index] = '0' + cmd_line_numb % 10;
+cmd_line_numb /= 10;
+}
+write(STDOUT_FILENO, shell_name, len_shell_name);
+write(STDOUT_FILENO, ": ", 2);
+write(STDOUT_FILENO, cmd_line_num_strn, len_cmd_line_num_strn);
+write(STDOUT_FILENO, ": ", 2);
+write(STDOUT_FILENO, "exit: wrong exit number: ", 26);
+write(STDOUT_FILENO, cmd_arg, cmd_arg_len);
+write(STDOUT_FILENO, "\n", 1);
+
+free(shell_name);
 }
 

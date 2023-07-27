@@ -78,9 +78,9 @@ return (delim_count);
 */
 int total_delim(char *strn, char delim_count)
 {
-int delim_count = 0;
+int index = 0;
 
-for (int index = 0; strn[index] != '\0'; index++)
+for (index = 0; strn[index] != '\0'; index++)
 {
 if (strn[index] == delim_count)
 {

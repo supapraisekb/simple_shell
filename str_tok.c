@@ -6,13 +6,13 @@
 * @delim_strn: the delimiter
 * Return: an array of tokens
 */
-char **str_tok(char *inp_strn, char delim_strn)
+char **str_tok(char *inp_strn, char *delim_strn)
 {
-int buff_size = 0, tok_index = 0, int str_index = 0, int token_len = 0;
-int end_input = 0, int count = 0, j;
-char **str_tokens = NULL, char delim_char;
+int buff_size = 0, tok_index = 0, str_index = 0, token_len = 0;
+int end_input = 0, j;
+char **str_tokens = NULL, delim_char;
 
-delim_char = delim_strn;
+delim_char = delim_strn[0];
 inp_strn = handle_recurr_delim(inp_strn, delim_char);
 buff_size = num_of_delims(inp_strn, delim_char);
 str_tokens = malloc(sizeof(char *) * (buff_size + 2));
@@ -37,7 +37,7 @@ j++;
 str_index++;
 }
 str_tokens[tok_index][j] = '\0';
-count++;
+tok_index++;
 }
 str_index++;
 }

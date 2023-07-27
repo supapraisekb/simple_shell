@@ -8,12 +8,11 @@
 */
 char *dup_strn(char *strn)
 {
-int len_of_strn = 0;
+int len_of_strn = 0, i;
 char *dup_str_ptr;
 
 if (!strn)
 return (NULL);
-
 while (strn[len_of_strn] != '\0')
 len_of_strn++;
 
@@ -21,7 +20,7 @@ dup_str_ptr = malloc(sizeof(char) * (len_of_strn + 1));
 if (!dup_str_ptr)
 return (NULL);
 
-for (int i = 0; i <= len_of_strn; i++)
+for (i = 0; i <= len_of_strn; i++)
 dup_str_ptr[i] = strn[i];
 
 return (dup_str_ptr);
@@ -35,7 +34,7 @@ return (dup_str_ptr);
 *          0 if there is no difference in the strings
 */
 
-strncmp_(char *strn1, char *strn2)
+int strncmp_(char *strn1, char *strn2)
 {
 int index = 0;
 if (strn1 != NULL && strn2 != NULL)
