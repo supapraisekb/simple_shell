@@ -37,7 +37,7 @@ char *exclude_strn(char *strn, int exclude_bytes);
 
 /*Tokenization functions*/
 int tok_strnlen(char *strn, int str_index, char delim);
-char **strn_token(char *inp_strn, char delim_strn);
+char **str_tok(char *inp_strn, char delim_strn);
 int num_of_delims(char *strn, char delim);
 char *handle_recurr_delim(char *strn, char delim);
 int total_delim(char *strn, char delim_count);
@@ -63,6 +63,7 @@ int simShell_setenv(list_t **env_list, char **cmd);
 int simShell_unsetenv(list_t **env_list, char **cmd);
 int _env_index_locator(list_t *env_list, char *strn);
 void nonInteractive(list_t *env_var);
+int simShell_environ(char **environ);
 
 /*Exit function*/
 int exit_simShell(char **inp_cmd, list_t *env_var,
