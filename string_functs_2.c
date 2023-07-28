@@ -1,12 +1,12 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
-* dup_strn - this function duplicates a given string using a pointer
+* *_strdup - this function duplicates a given string using a pointer
 * that has a copy of the given string parameter
 * @strn: the input string to be duplicated
 * Return: a pointer that holds the duplicated string
 */
-char *dup_strn(char *strn)
+char *_strdup(char *strn)
 {
 int len_of_strn = 0, i;
 char *dup_str_ptr;
@@ -27,14 +27,14 @@ return (dup_str_ptr);
 }
 
 /**
-* strncmp_ - compares the contents of two strings
+* _strcmp - compares the contents of two strings
 * @strn1: the string to be compared
 * @strn2: the string to compare with
 * Return: an integer that indicated the difference in the strings
 *          0 if there is no difference in the strings
 */
 
-int strncmp_(char *strn1, char *strn2)
+int _strcmp(char *strn1, char *strn2)
 {
 int index = 0;
 if (strn1 != NULL && strn2 != NULL)
@@ -61,9 +61,7 @@ int _atoi(char *strn)
 {
 int k = 0;
 unsigned int conv_int = 0;
-
 for (k = 0; strn[k] != '\0'; k++)
-
 {
 if (strn[k] >= '0' && strn[k] <= '9')
 conv_int *= 10 + (strn[k] - '0');
@@ -73,4 +71,3 @@ return (-1);
 }
 return (conv_int);
 }
-

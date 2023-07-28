@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * str_tok - splits a string into smaller substrings known as tokens

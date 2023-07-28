@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 #include <string.h>
 #include <math.h>
 
@@ -39,12 +39,12 @@ return (length);
 }
 
 /**
-* _strncat - this function concatenates two strings
+* _strcat - this function concatenates two strings
 * @src: the string to join to another
 * @dest: the string to be joined to
 * Return: the concatenated strings
 */
-char *_strncat(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 size_t dest_len = _strlen(dest);
 size_t src_len = _strlen(src);
@@ -61,13 +61,13 @@ return (conct_str);
 }
 
 /**
-* _strncpy - copies a string from a source to a specified destination
+* _strcpy - copies a string from a source to a specified destination
 * @dest: where the string is copied to
 * @str: the string to be copied
 *Return: the new string
 */
 
-char *_strncpy(char *dest, char *str)
+char *_strcpy(char *dest, char *str)
 {
 int index = 0;
 

@@ -21,7 +21,7 @@ else
 nonInteractive(env_var);
 signal(SIGINT, ctrl_c);
 cmd = NULL;
-index =_get_line(&cmd);
+index = _getline(&cmd);
 if (index == 0)
 {
 free(cmd);
@@ -65,8 +65,6 @@ int main(int argcount, char **argvector, char **env_var)
 {
 (void)argcount;
 (void)argvector;
-
 simShell_environ(env_var);
-
 return (0);
 }

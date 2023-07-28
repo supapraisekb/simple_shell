@@ -25,13 +25,13 @@ struct list *node_ptr;
 } list_t;
 
 /*functions for string manipulations*/
-char *_strncat(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 char *conv_to_string(int num);
-size_t _get_line(char **str_buff);
-int _strnlen(const char *s);
-char *dup_strn(char *strn);
-int strncmp_(char *strn1, char *strn2);
-char *_strncpy(char *dest, char *str);
+size_t _getline(char **str_buff);
+int _strlen(const char *s);
+char *_strdup(char *strn);
+int _strcmp(char *strn1, char *strn2);
+char *_strcpy(char *dest, char *str);
 int _zerosCounter(int num);
 char *exclude_strn(char *strn, int exclude_bytes);
 
@@ -41,7 +41,7 @@ char **str_tok(char *inp_strn, char *delim_strn);
 int num_of_delims(char *strn, char delim);
 char *handle_recurr_delim(char *strn, char delim);
 int total_delim(char *strn, char delim_count);
-char **token_array(char *strn, char *delim);
+char **_token_array(char *strn, char *delim_type);
 int _atoi(char *strn);
 
 /*Auxilliary Functions*/
