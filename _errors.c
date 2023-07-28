@@ -25,7 +25,7 @@ free(shell_name);
 
 write(STDOUT_FILENO, ": ", 2);
 
-cmd_num_strn = conv_to_string(cmd_line_numb);
+cmd_num_strn = conv_to_str(cmd_line_numb);
 k = 0;
 while (cmd_num_strn[k] != '\0')
 {
@@ -35,7 +35,7 @@ write(STDOUT_FILENO, cmd_num_strn, k);
 free(cmd_num_strn);
 
 write(STDOUT_FILENO, ": ", 2);
-write(STDOUT_FILENO, command_name, _strnlen(command_name));
+write(STDOUT_FILENO, command_name, _strlen(command_name));
 write(STDOUT_FILENO, ": number of arguments does not match\n", 37);
 }
 
@@ -65,7 +65,7 @@ free(name_of_shell);
 
 write(STDOUT_FILENO, ": ", 2);
 
-cmd_num_strn = conv_to_string(cmd_line_numb);
+cmd_num_strn = conv_to_str(cmd_line_numb);
 k = 0;
 
 while (cmd_num_strn[k] != '\0')
@@ -113,7 +113,7 @@ free(shell_name);
 
 write(STDOUT_FILENO, ": ", 2);
 
-cmd_num_strn = conv_to_string(cmd_line_numb);
+cmd_num_strn = conv_to_str(cmd_line_numb);
 k = 0;
 while (cmd_num_strn[k] != '\0')
 {

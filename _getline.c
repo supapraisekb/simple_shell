@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
-* _get_line - stores the user's input command in a buffer
+* _getline - stores the user's input command in a buffer
 * dynamically obtained by malloc
 * @str_buff: pointer to the buffer holding the string
 * Return: the characters read from the user's input
 */
-size_t _get_line(char **str_buff)
+size_t _getline(char **str_buff)
 {
 ssize_t index = 0;
 ssize_t count = 0;
@@ -34,13 +34,13 @@ if (*str_buff == NULL)
 perror("malloc");
 return (-1);
 }
-*str_buff = _strncpy(*str_buff, BUFFER);
+*str_buff = _strcpy(*str_buff, BUFFER);
 strings_read = index;
 }
 else
 {
 strings_read += index;
-*str_buff = _strncat(*str_buff, BUFFER);
+*str_buff = _strcat(*str_buff, BUFFER);
 }
 }
 

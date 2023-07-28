@@ -11,7 +11,7 @@
 char *handle_recurr_delim(char *strn, char delim)
 {
 size_t start_index = 0;
-size_t len_of_strn = _strnlen(strn);
+size_t len_of_strn = _strlen(strn);
 
 while (start_index < len_of_strn && strn[start_index] == delim)
 {

@@ -12,7 +12,7 @@ char **cmd_token = NULL, **multi_line_tokenizer;
 
 size_t index = 0, counter = 0;
 
-index = _get_line(&cmd);
+index = _getline(&cmd);
 if (index == 0)
 {
 free(cmd);
@@ -40,7 +40,7 @@ if (xit_status != 0)
 counter++;
 continue;
 }
-xit_status = exe_cve(cmd_token, env_var, line_count);
+xit_status = _execve(cmd_token, env_var, line_count);
 counter++;
 }
 release_ptr(multi_line_tokenizer);

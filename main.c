@@ -46,7 +46,7 @@ if (xit_status)
 {
 continue;
 }
-xit_status = exe_cve(cmd_tokens, env_var, line_count);
+xit_status = _execve(cmd_tokens, env_var, line_count);
 break;
 }
 release_list(env_var);

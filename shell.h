@@ -26,14 +26,13 @@ struct list *node_ptr;
 
 /*functions for string manipulations*/
 char *_strcat(char *dest, char *src);
-char *conv_to_string(int num);
+char *conv_to_str(int num);
 size_t _getline(char **str_buff);
 int _strlen(const char *s);
 char *_strdup(char *strn);
 int _strcmp(char *strn1, char *strn2);
 char *_strcpy(char *dest, char *str);
 int _zerosCounter(int num);
-char *exclude_strn(char *strn, int exclude_bytes);
 
 /*Tokenization functions*/
 int tok_strnlen(char *strn, int str_index, char delim);
@@ -44,10 +43,11 @@ int total_delim(char *strn, char delim_count);
 char **_token_array(char *strn, char *delim_type);
 int _atoi(char *strn);
 
-/*Auxilliary Functions*/
-char *custom_which(char *cmd, list_t *env_var);
+/*Helper Functions*/
+char *_which(char *cmd, list_t *env_var);
 char *_getenv(char *inp_str, list_t *env_var);
 void release_ptr(char **str_arr);
+char *exclude_strn(char *strn, int exclude_bytes);
 
 /*sim_shell_linked_lists*/
 list_t *append_node(list_t **begin, char *node_data);
@@ -85,7 +85,7 @@ int change_directory(char **cmd_input, list_t *env_var, int cmd_numb_str);
 int cd_cmd_exec(list_t *env_var, char *curr_dir,
 		char *new_dir, char *input_cmd, int cmd_numb_str);
 int change_dir(char **inp_toks, list_t *env_var, int cmd_num_strn);
-int exe_cve(char **inpt_cmd, list_t *env_var, int cmd_num);
+int _execve(char **inpt_cmd, list_t *env_var, int cmd_num);
 
 
 /*Singal Handlers*/

@@ -14,7 +14,7 @@ if (!begin || !node_data)
 return (NULL);
 if (created_node == NULL)
 return (NULL);
-created_node->str_var = dup_strn(node_data);
+created_node->str_var = _strdup(node_data);
 if (created_node->str_var == NULL)
 {
 free(created_node);
