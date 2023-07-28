@@ -1,5 +1,5 @@
-#ifndef SIM_SHELL_H
-#define SIM_SHELL_H
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -97,4 +97,4 @@ char *space_handler(char *inp_str);
 char *ignore_first_char(char *strn1, char *strn2);
 int custom_setenv(list_t **env_var, char *name, char *pathname);
 
-#endif /*SIM_SHELL_H*/
+#endif /*SHELL_H*/

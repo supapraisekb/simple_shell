@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * append_node - adds a node to the end of the list

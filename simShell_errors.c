@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * num_mismatch - Write error message

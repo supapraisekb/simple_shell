@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * envLinked_list - handles the environment variables linked list

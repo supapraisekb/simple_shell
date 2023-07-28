@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * ctrl_c - ignores ctrl-c command input direncts cursor to prompt

@@ -1,5 +1,4 @@
-#include "sim_shell.h"
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * exit_free_ - it frees up the command before exit
