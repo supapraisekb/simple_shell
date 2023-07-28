@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * display_env_var -  it prints out the environment variables to
@@ -35,9 +35,9 @@ free(cmd[1]);
 free(cmd);
 return (-1);
 }
-new_node_ptr = _strdup(cmd[0]);
-new_node_ptr = _strcat(new_node_ptr, "=");
-new_node_ptr = _strcat(new_node_ptr, cmd[1]);
+new_node_ptr = dup_strn(cmd[0]);
+new_node_ptr = _strncat(new_node_ptr, "=");
+new_node_ptr = _strncat(new_node_ptr, cmd[1]);
 i = _env_index_locator(*env_list, cmd[0]);
 if (i == -1)
 {
@@ -54,7 +54,7 @@ k++;
 if (curr_node_ptr != NULL)
 {
 free(curr_node_ptr->str_var);
-curr_node_ptr->str_var = _strdup(new_node_ptr);
+curr_node_ptr->str_var = dup_strn(new_node_ptr);
 }
 }
 free(new_node_ptr);
@@ -96,7 +96,6 @@ if (k == -1)
 write(STDOUT_FILENO, "wrong input\n", 13);
 return (-1);
 }
-
 return (0);
 }
 
@@ -112,7 +111,7 @@ int index = 0;
 
 while (env_list != NULL)
 {
-if (f_strcmp(env_list->str_var, strn) == 0)
+if (strncmp_(env_list->str_var, strn) == 0)
 return (index);
 
 env_list = env_list->node_ptr;

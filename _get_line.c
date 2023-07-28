@@ -1,24 +1,22 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * _get_line - stores the user's input command in a buffer
 * dynamically obtained by malloc
-* @str_buff: buffer holding the string
-* Return: the characters in the string
+* @str_buff: pointer to the buffer holding the string
+* Return: the characters read from the user's input
 */
 size_t _get_line(char **str_buff)
 {
-ssize_t index = 0, m_flag = 0, ssize_t count = 0;
+ssize_t index = 0;
+ssize_t count = 0;
 ssize_t newline_flag = 0;
 char BUFFER[1024];
 ssize_t strings_read = 0;
 
 while (newline_flag == 0 &&
-		(index = read(STDIN_FILENO, BUFFER, 1024 - 1)))
+(index = read(STDIN_FILENO, BUFFER, 1024 - 1)) > 0)
 {
-if (index == -1)
-return (-1);
-
 BUFFER[index] = '\0';
 
 while (BUFFER[count] != '\0')
@@ -28,20 +26,27 @@ newline_flag = 1;
 count++;
 }
 
-if (m_flag == 0)
+if (*str_buff == NULL)
 {
-index++;
-*str_buff = malloc(sizeof(char) * index);
+*str_buff = malloc(sizeof(char) * (index + 1));
+if (*str_buff == NULL)
+{
+perror("malloc");
+return (-1);
+}
 *str_buff = _strncpy(*str_buff, BUFFER);
 strings_read = index;
-m_flag = 1;
 }
 else
-{
 {
 strings_read += index;
 *str_buff = _strncat(*str_buff, BUFFER);
 }
 }
+
+if (index == -1)
+return (-1);
+
 return (strings_read);
 }
+

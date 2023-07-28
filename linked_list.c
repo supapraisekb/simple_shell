@@ -1,4 +1,4 @@
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * append_node - adds a node to the end of the list
@@ -8,13 +8,12 @@
 */
 list_t *append_node(list_t **begin, char *node_data)
 {
+list_t *created_node = malloc(sizeof(list_t));
+
 if (!begin || !node_data)
 return (NULL);
-
-list_t *created_node = malloc(sizeof(list_t));
 if (created_node == NULL)
 return (NULL);
-
 created_node->str_var = dup_strn(node_data);
 if (created_node->str_var == NULL)
 {
@@ -104,6 +103,7 @@ return (li_size);
 int del_node(list_t **list_head, int node_index)
 {
 list_t *node_1, *node_buff;
+int counter = 1;
 
 if (*list_head == NULL)
 return (-1);
@@ -119,7 +119,6 @@ return (1);
 
 node_1 = *list_head;
 
-int counter = 1;
 while (node_1 != NULL && counter < node_index)
 {
 node_1 = node_1->node_ptr;

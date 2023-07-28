@@ -1,6 +1,4 @@
-#include "sim_shell.h"
-
-#include "sim_shell.h"
+#include "shell.h"
 
 /**
 * custom_setenv - concatenates strn before setenv
@@ -31,12 +29,12 @@ i--;
 if (curr_node_ptr != NULL)
 {
 free(curr_node_ptr->str_var);
-curr_node_ptr->str_var = _strdup(new_str);
+curr_node_ptr->str_var = dup_strn(new_str);
 }
 /* If the environment variable is not found, add it to the linked list */
 else
 {
-add_node_end(env_var, new_str);
+append_node(env_var, new_str);
 }
 
 free(new_str);
@@ -53,7 +51,7 @@ return (0);
 
 char *ignore_first_char(char *strn1, char *strn2)
 {
-int len1 = _strnlen(strn1);
+int len1 = _strnlen(strn1), i, j;
 int len2 = _strnlen(strn2);
 int conc_len = len1 + len2 - 1;
 
@@ -63,9 +61,6 @@ if (result == NULL)
 {
 return (NULL);
 }
-
-int i = 0;
-int j = 1;
 
 while (strn1[i] != '\0')
 {

@@ -1,4 +1,17 @@
-#include "sim_shell.h"
+#include "shell.h"
+
+/**
+* exit_free_ - it frees up the command before exit
+* @inp_cmd: user command input
+* @env_var: the environment variable llinked list
+*/
+
+void exit_free_(char **inp_cmd, list_t *env_var)
+{
+release_ptr(inp_cmd);
+release_list(env_var);
+exit(0);
+}
 
 /**
 * exit_simShell - exits the shell program with an integer value
@@ -9,8 +22,8 @@
 *  Return: 0 if successful 3 if it fails
 */
 
-int exit_simShell(char **inp_cmd, list_t *env_var, i
-		nt cmd_line_numb, **free_cmd)
+int exit_simShell(char **inp_cmd, list_t *env_var,
+		int cmd_line_numb, char **free_cmd)
 {
 int exit_val = 0;
 
@@ -23,10 +36,8 @@ _exit_error_msg(inp_cmd[1], cmd_line_numb, env_var);
 release_ptr(inp_cmd);
 return (3);
 }
-
 release_ptr(inp_cmd);
 release_list(env_var);
-if (!cmd_line_numb)
-release_ptr(cmd_line_numb);
+release_ptr(free_cmd);
 exit(exit_val);
 }
