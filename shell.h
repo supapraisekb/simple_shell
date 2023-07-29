@@ -67,7 +67,8 @@ void nonInteractive(list_t *env_var);
 int simShell_environ(char **environ);
 
 /*Exit function*/
-int exit_simShell(char **inp_cmd, list_t *env_var, int cmd_line_numb, char **free_cmd);
+int exit_simShell(char **inp_cmd, list_t *env_var,
+		int cmd_line_numb, char **free_cmd);
 void exit_free_(char **inp_cmd, list_t *env_var);
 
 /*Error Handlers*/

@@ -23,10 +23,8 @@ signal(SIGINT, ctrl_c);
 cmd = NULL;
 index = _getline(&cmd);
 if (index == 0)
-{
 free(cmd);
 break;
-}
 cmd = space_handler(cmd);
 counter = 0;
 while (cmd[counter] != '\n')
@@ -43,9 +41,7 @@ cmd_tokens = NULL;
 cmd_tokens = str_tok(cmd, " ");
 xit_status = builtin_handler(cmd_tokens, env_var, line_count, NULL);
 if (xit_status)
-{
 continue;
-}
 xit_status = _execve(cmd_tokens, env_var, line_count);
 break;
 }
